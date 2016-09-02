@@ -5,19 +5,19 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema receptor
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema receptor
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `receptor` DEFAULT CHARACTER SET utf8 ;
+USE `receptor` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`REMESAS`
+-- Table `receptor`.`REMESAS`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`REMESAS` (
+CREATE TABLE IF NOT EXISTS `receptor`.`REMESAS` (
   `ID_REMESA` INT NOT NULL,
   `NOMBRES_RECEPTOR` VARCHAR(30) NULL,
   `APPELLIDOS_RECEPTOR` VARCHAR(30) NULL,
@@ -33,9 +33,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`EMISOR`
+-- Table `receptor`.`EMISOR`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`EMISOR` (
+CREATE TABLE IF NOT EXISTS `receptor`.`EMISOR` (
   `ID_EMISOR` INT NOT NULL,
   `NOMBRES_EMISOR` VARCHAR(30) NULL,
   `APELLIDOS_EMISOR` VARCHAR(30) NULL,
@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`EMISOR` (
   INDEX `fk_EMISOR_REMESAS_idx` (`REMESAS_ID_REMESA` ASC),
   CONSTRAINT `fk_EMISOR_REMESAS`
     FOREIGN KEY (`REMESAS_ID_REMESA`)
-    REFERENCES `mydb`.`REMESAS` (`ID_REMESA`)
+    REFERENCES `receptor`.`REMESAS` (`ID_REMESA`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
